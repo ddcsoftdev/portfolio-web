@@ -32,14 +32,6 @@ const App = () => {
         <>
             <LandingPage></LandingPage>
             <CssBaseline />
-            <NavBar />
-            <main>
-                {/* Hero unit */}
-                <Container sx={{ py: 8 }} maxWidth="md">
-                    {/* End hero unit */}
-                    <PortfolioGrid projects={projects}/>
-                </Container>
-            </main>
         </>
     );
 }

@@ -112,7 +112,6 @@ export default function LandingPage() {
               {/* End hero unit */}
               <PortfolioGrid projects={projects}/>
           </Container>
-          <My3DModel/>
         <Features />
         <Divider />
         <Divider />

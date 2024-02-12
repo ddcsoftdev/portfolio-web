@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 // Import OrbitControls using ES6 modules
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import {sizeWidth} from "@mui/system";
 
 const My3DModel = () => {
     const mountRef = useRef(null);
@@ -10,33 +11,27 @@ const My3DModel = () => {
         // Scene setup
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.set(0, 0, 5);
+        camera.position.z = 5;
 
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        mountRef.current.appendChild(renderer.domElement);
+        const renderer = new THREE.WebGLRenderer();
+        let sizeWidth = 280;
+        let sizeHeight = 200;
+        renderer.setSize(sizeWidth, sizeHeight);
+        mountRef.current.appendChild(renderer.domElement); // Attach renderer to the div
 
-        // Lighting
-        const pointLight = new THREE.PointLight(0xffffff, 1);
-        pointLight.position.set(5, 5, 5);
-        scene.add(pointLight);
-
-        // Cube setup
+        // Create a cube
         const geometry = new THREE.BoxGeometry(1, 1, 1);
-        const material = new THREE.MeshStandardMaterial({ color: 0xff0000 });
+        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
         const cube = new THREE.Mesh(geometry, material);
         scene.add(cube);
 
-        // OrbitControls
-        const controls = new OrbitControls(camera, renderer.domElement);
-        controls.update();
-
-        // Animation loop
-        const animate = function () {
+        // Animation function
+        const animate = () => {
             requestAnimationFrame(animate);
 
-            // Update controls per frame
-            controls.update();
+            // Rotation
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
 
             renderer.render(scene, camera);
         };

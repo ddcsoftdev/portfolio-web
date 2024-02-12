@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardActionArea, CardContent, Typography } from '@mui/material';
+import {Button, Card, CardActionArea, CardContent, Typography} from '@mui/material';
 import My3DModel from "./My3DModel.jsx";
 
 const PortfolioCard = ({ title, description, tags, technologyStack }) => {
@@ -20,6 +20,7 @@ const PortfolioCard = ({ title, description, tags, technologyStack }) => {
                         {description}
                     </Typography>
                     {/* Display tags and technology stack */}
+                    <Button>Repositry</Button>
                 </CardContent>
             </CardActionArea>
         </Card>

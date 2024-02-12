@@ -6,7 +6,7 @@ const ProjectGrid = ({ projects }) => {
     return (
         <Grid container spacing={4}>
             {projects.map((project, index) => (
-                <Grid item key={index} xs={12} sm={6} md={4}>
+                <Grid item key={index} xs={8} sm={6} md={6}>
                     <PortfolioCard {...project} />
                 </Grid>
             ))}

@@ -14,7 +14,7 @@ const My3DModel = () => {
         camera.position.z = 5;
 
         const renderer = new THREE.WebGLRenderer();
-        let sizeWidth = 280;
+        let sizeWidth = 260;
         let sizeHeight = 200;
         renderer.setSize(sizeWidth, sizeHeight);
         mountRef.current.appendChild(renderer.domElement); // Attach renderer to the div

@@ -20,6 +20,7 @@ import getLPTheme from './getLPTheme.jsx';
 import ProjectGrid from "../PortfolioGrid.jsx";
 import PortfolioGrid from "../PortfolioGrid.jsx";
 import {Container} from "@mui/material";
+import My3DModel from "../My3DModel.jsx";
 
 const defaultTheme = createTheme({});
 
@@ -111,6 +112,7 @@ export default function LandingPage() {
               {/* End hero unit */}
               <PortfolioGrid projects={projects}/>
           </Container>
+          <My3DModel/>
         <Features />
         <Divider />
         <Divider />

@@ -1,8 +1,13 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import PortfolioCard from "./PortfolioCard.jsx";
+import PropTypes from "prop-types";
 
-const ProjectGrid = ({ projects }) => {
+const ProjectGrid = ({ projects}) => {
+
+    ProjectGrid.propTypes ={
+        projects: PropTypes.array
+    }
     return (
         <Grid container spacing={4}>
             {projects.map((project, index) => (

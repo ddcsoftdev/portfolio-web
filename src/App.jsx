@@ -1,11 +1,10 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import { CssBaseline, Container } from '@mui/material';
 import NavBar from "./components/NavBar.jsx";
 import PortfolioGrid from "./components/PortfolioGrid.jsx";
 import LandingPage from "./components/landing-page/LandingPage.jsx";
 
 const App = () => {
-
     const projects = [
         {
             title: 'Project 1',

@@ -13,7 +13,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/X';
 
 const logoStyle = {
-  width: '140px',
+  width: '50px',
   height: 'auto',
 };
 
@@ -21,7 +21,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" mt={1}>
       {'Copyright © '}
-      <Link href="https://mui.com/">Sitemark&nbsp;</Link>
+      <Link href="">DDC&nbsp;</Link>
       {new Date().getFullYear()}
     </Typography>
   );
@@ -56,20 +56,20 @@ export default function Footer() {
           }}
         >
           <Box sx={{ width: { xs: '100%', sm: '60%' } }}>
-            <Box sx={{ ml: '-15px' }}>
+            <Box sx={{ ml: '10px', mb: '-10px' }}>
               <img
                 src={
-                  'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e6faf73568658154dae_SitemarkDefault.svg'
+                  "src/assets/logo.png"
                 }
                 style={logoStyle}
-                alt="logo of sitemark"
+                alt="logo"
               />
             </Box>
             <Typography variant="body2" fontWeight={600} gutterBottom>
-              Newsletter
+              Placeholder
             </Typography>
             <Typography variant="body2" color="text.secondary" mb={2}>
-              Subscribe to our newsletter for weekly updates and promotions.
+              This is a placeholder box for future use.
             </Typography>
             <Stack direction="row" spacing={1} useFlexGap>
               <TextField
@@ -98,44 +98,18 @@ export default function Footer() {
             gap: 1,
           }}
         >
-          <Typography variant="body2" fontWeight={600}>
-            Product
-          </Typography>
-          <Link color="text.secondary" href="#">
-            Features
-          </Link>
-          <Link color="text.secondary" href="#">
-            Testimonials
-          </Link>
-          <Link color="text.secondary" href="#">
-            Highlights
-          </Link>
-          <Link color="text.secondary" href="#">
-            Pricing
-          </Link>
-          <Link color="text.secondary" href="#">
-            FAQs
-          </Link>
-        </Box>
-        <Box
-          sx={{
-            display: { xs: 'none', sm: 'flex' },
-            flexDirection: 'column',
-            gap: 1,
-          }}
-        >
-          <Typography variant="body2" fontWeight={600}>
-            Company
-          </Typography>
-          <Link color="text.secondary" href="#">
-            About us
-          </Link>
-          <Link color="text.secondary" href="#">
-            Careers
-          </Link>
-          <Link color="text.secondary" href="#">
-            Press
-          </Link>
+            <Typography variant="body2" fontWeight={600}>
+                Index
+            </Typography>
+            <Link color="text.secondary" href="#">
+                Projects
+            </Link>
+            <Link color="text.secondary" href="#">
+                About
+            </Link>
+            <Link color="text.secondary" href="#">
+                Contact
+            </Link>
         </Box>
         <Box
           sx={{
@@ -191,7 +165,7 @@ export default function Footer() {
         >
           <IconButton
             color="inherit"
-            href="https://github.com/mui"
+            href="https://github.com/ddcsoftdev"
             aria-label="GitHub"
             sx={{ alignSelf: 'center' }}
           >
@@ -199,7 +173,7 @@ export default function Footer() {
           </IconButton>
           <IconButton
             color="inherit"
-            href="https://twitter.com/MaterialUI"
+            href=""
             aria-label="X"
             sx={{ alignSelf: 'center' }}
           >
@@ -207,7 +181,7 @@ export default function Footer() {
           </IconButton>
           <IconButton
             color="inherit"
-            href="https://www.linkedin.com/company/mui/"
+            href="https://www.linkedin.com/in/diegoddemarco/"
             aria-label="LinkedIn"
             sx={{ alignSelf: 'center' }}
           >

@@ -3,18 +3,19 @@ import * as THREE from 'three';
 // Import OrbitControls using ES6 modules
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import {sizeWidth} from "@mui/system";
+import PropTypes from "prop-types";
 
-const My3DModel = () => {
-    const mountRef = useRef(null);
-
+const My3DModel = ({boxWidth}) => {
+    const mountRef = useRef()
     useEffect(() => {
+        const currentMountRef = mountRef.current;
         // Scene setup
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         camera.position.z = 5;
 
         const renderer = new THREE.WebGLRenderer();
-        let sizeWidth = 260;
+        let sizeWidth = boxWidth;
         let sizeHeight = 200;
         renderer.setSize(sizeWidth, sizeHeight);
         mountRef.current.appendChild(renderer.domElement); // Attach renderer to the div
@@ -40,11 +41,14 @@ const My3DModel = () => {
 
         // Cleanup
         return () => {
-            mountRef.current.removeChild(renderer.domElement);
+            currentMountRef.removeChild(renderer.domElement);
         };
     }, []);
 
     return <div ref={mountRef} />;
 };
 
+My3DModel.propTypes = {
+    boxWidth: PropTypes.number.isRequired,
+};
 export default My3DModel;

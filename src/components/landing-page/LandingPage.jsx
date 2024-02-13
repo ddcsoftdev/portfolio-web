@@ -19,12 +19,16 @@ import Footer from './components/Footer';
 import getLPTheme from './getLPTheme.jsx';
 import ProjectGrid from "../PortfolioGrid.jsx";
 import PortfolioGrid from "../PortfolioGrid.jsx";
-import {Container} from "@mui/material";
+import {Container, setRef} from "@mui/material";
 import My3DModel from "../My3DModel.jsx";
+import NavBar from "../NavBar.jsx";
+import Header from "../shared/Header.jsx";
+import {useEffect, useRef, useState} from "react";
 
 const defaultTheme = createTheme({});
 
 function ToggleCustomTheme({ showCustomTheme, toggleCustomTheme }) {
+
   return (
     <Box
       sx={{
@@ -51,10 +55,10 @@ function ToggleCustomTheme({ showCustomTheme, toggleCustomTheme }) {
       >
         <ToggleButton value>
           <AutoAwesomeRoundedIcon sx={{ fontSize: '20px', mr: 1 }} />
-          Custom theme
+          Data here
         </ToggleButton>
         <ToggleButton value={false}>
-          Material Design
+          For Projects
         </ToggleButton>
       </ToggleButtonGroup>
     </Box>
@@ -73,7 +77,7 @@ export default function LandingPage() {
   const [showCustomTheme, setShowCustomTheme] = React.useState(true);
   const LPtheme = createTheme(getLPTheme(mode));
 
-  const toggleColorMode = () => {
+    const toggleColorMode = () => {
     setMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
   };
 
@@ -101,18 +105,33 @@ export default function LandingPage() {
         },
 
     ]
+
+    /* Handle window size */
+    const [width, setWidth] = useState(window.innerWidth);
+    //get inner width on render
+    useEffect(() => {
+        window.addEventListener('resize', () => setWidth(window.innerWidth));
+
+        // Remove event listener on cleanup
+        return () => window.removeEventListener('resize', () => setWidth(window.innerWidth));
+    }, []);
+
+
+
   return (
     <ThemeProvider theme={showCustomTheme ? LPtheme : defaultTheme}>
       <CssBaseline />
-      <AppAppBar mode={mode} toggleColorMode={toggleColorMode} />
-      <Box width={window.innerWidth} sx={{ bgcolor: 'background.default' }}>
+      <NavBar mode={mode} toggleColorMode={toggleColorMode} />
+        <Header/>
+      <Box width={width} sx={{ bgcolor: 'background.default' }}>
 
-        <LogoCollection />
           <Container sx={{ py: 8 }} maxWidth="md">
               {/* End hero unit */}
-              <PortfolioGrid projects={projects}/>
+              <PortfolioGrid projects={projects} />
           </Container>
-        <Features />
+          {/*
+        <LogoCollection />
+          <Features />
         <Divider />
         <Divider />
         <Highlights />
@@ -121,6 +140,8 @@ export default function LandingPage() {
         <Divider />
         <FAQ />
         <Divider />
+          */}
+
         <Footer />
       </Box>
       <ToggleCustomTheme

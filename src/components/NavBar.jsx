@@ -81,13 +81,6 @@ const NavBar = ({ mode, toggleColorMode }) => {
                                 px: 0,
                             }}
                         >
-                            <img
-                                src={
-                                    "src/assets/logo.png"
-                                }
-                                style={logoStyle}
-                                alt="logo of sitemark"
-                            />
                             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                                 <MenuItem
                                     onClick={() => scrollToSection('features')}

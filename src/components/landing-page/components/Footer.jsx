@@ -57,13 +57,7 @@ export default function Footer() {
         >
           <Box sx={{ width: { xs: '100%', sm: '60%' } }}>
             <Box sx={{ ml: '10px', mb: '-10px' }}>
-              <img
-                src={
-                  "src/assets/logo.png"
-                }
-                style={logoStyle}
-                alt="logo"
-              />
+
             </Box>
             <Typography variant="body2" fontWeight={600} gutterBottom>
               Placeholder

@@ -42,7 +42,7 @@ const PortfolioCard = ({ title, description, tags, technologyStack}) => {
                         {description}
                     </Typography>
                     {/* Display tags and technology stack */}
-                    <Button>Repositry</Button>
+                    <Button>Repository</Button>
                 </CardContent>
                 <My3DModel boxWidth={width}/>
             </CardActionArea>

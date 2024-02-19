@@ -124,7 +124,6 @@ export default function LandingPage() {
       <NavBar mode={mode} toggleColorMode={toggleColorMode} />
         <Header/>
       <Box width={width} sx={{ bgcolor: 'background.default' }}>
-
           <Container sx={{ py: 8 }} maxWidth="md">
               {/* End hero unit */}
               <PortfolioGrid projects={projects} />

@@ -20,11 +20,14 @@
     "@mui/system": "^5.15.9",
     "@react-three/fiber": "^8.15.16",
     "axios": "^1.6.7",
+    "clsx": "^2.1.0",
     "docs": "^0.3.2-canary.0",
+    "framer-motion": "^11.0.5",
     "markdown-to-jsx": "^7.4.1",
     "prop-type": "^0.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "tailwind-merge": "^2.2.1",
     "three": "^0.161.0"
   },
   "devDependencies": {

@@ -72,7 +72,11 @@ ToggleCustomTheme.propTypes = {
   toggleCustomTheme: PropTypes.func.isRequired,
 };
 
-export default function LandingPage() {
+export default function LandingPage({projects}) {
+
+    LandingPage.propTypes ={
+        projects: PropTypes.array
+    }
   const [mode, setMode] = React.useState('dark');
   const [showCustomTheme, setShowCustomTheme] = React.useState(true);
   const LPtheme = createTheme(getLPTheme(mode));
@@ -84,27 +88,6 @@ export default function LandingPage() {
   const toggleCustomTheme = () => {
     setShowCustomTheme((prev) => !prev);
   };
-    const projects = [
-        {
-            title: 'Project 1',
-            description: 'This is a brief description of Project 1.',
-            tags: ['React', 'Node.js'],
-            technologyStack: ['MongoDB', 'Express', 'React']
-        },
-        {
-            title: 'Project 2',
-            description: 'This is a brief description of Project 1.',
-            tags: ['React', 'Node.js'],
-            technologyStack: ['MongoDB', 'Express', 'React']
-        },
-        {
-            title: 'Project 3',
-            description: 'This is a brief description of Project 1.',
-            tags: ['React', 'Node.js'],
-            technologyStack: ['MongoDB', 'Express', 'React']
-        },
-
-    ]
 
     /* Handle window size */
     const [width, setWidth] = useState(window.innerWidth);

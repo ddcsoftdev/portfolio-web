@@ -2,13 +2,19 @@ import React, {useEffect, useRef, useState} from 'react';
 import {Button, Card, CardActionArea, CardContent, Typography} from '@mui/material';
 import My3DModel from "./My3DModel.jsx";
 import PropTypes from "prop-types";
+import Link from "@mui/material/Link";
 
-const PortfolioCard = ({ title, description, tags, technologyStack}) => {
+const PortfolioCard = ({project}) => {
+
+    PortfolioCard.propTypes ={
+        project: PropTypes.object
+    }
     // Placeholder for the Three.js component integration
     // const ThreeDModel = <YourThreeJSComponent />;
     const domRef = useRef(null)
     const [width, setWidth] = useState(408);
 
+    console.log(project);
     useEffect(() => {
         const resizeObserver = new ResizeObserver(entries => {
             for (let entry of entries) {
@@ -36,15 +42,23 @@ const PortfolioCard = ({ title, description, tags, technologyStack}) => {
 
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                        {title}
+                        {project.title}
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        {description}
+                        Category: {project.category}
                     </Typography>
-                    {/* Display tags and technology stack */}
-                    <Button>Repository</Button>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                        {project.description.text}
+                    </Typography>
                 </CardContent>
                 <My3DModel boxWidth={width}/>
+                <CardContent>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                        {project.stack}
+                    </Typography>
+                    <Button target={project.title} href={project.repository}>Repository</Button>
+
+                </CardContent>
             </CardActionArea>
         </Card>
     );

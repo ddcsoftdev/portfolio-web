@@ -14,7 +14,6 @@ const PortfolioCard = ({project}) => {
     const domRef = useRef(null)
     const [width, setWidth] = useState(408);
 
-    console.log(project);
     useEffect(() => {
         const resizeObserver = new ResizeObserver(entries => {
             for (let entry of entries) {
@@ -30,12 +29,11 @@ const PortfolioCard = ({project}) => {
     }, []);
 
     useEffect(() => {
-        console.log("Width: ", width)
     }, [width])
 
 
     return (
-        <Card ref={domRef}>
+        <Card ref={domRef} onClick={() => { window.open(project.repository, project.title, 'noopener,noreferrer') }}>
             <CardActionArea>
                 {/* Replace with Three.js 3D model */}
                 {/* {ThreeDModel} */}
@@ -48,13 +46,13 @@ const PortfolioCard = ({project}) => {
                         Category: {project.category}
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        {project.description.text}
+                        Description: {project.description.text}
                     </Typography>
                 </CardContent>
                 <My3DModel boxWidth={width}/>
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        {project.stack}
+                        Stack: {project.stack}
                     </Typography>
                     <Button target={project.title} href={project.repository}>Repository</Button>
 

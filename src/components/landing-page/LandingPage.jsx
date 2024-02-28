@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import {ThemeProvider, createTheme} from '@mui/material/styles';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
@@ -24,70 +24,71 @@ import My3DModel from "../My3DModel.jsx";
 import NavBar from "../NavBar.jsx";
 import Header from "../shared/Header.jsx";
 import {useEffect, useRef, useState} from "react";
+import MainHeader from "../MainHeader.jsx";
 
 const defaultTheme = createTheme({});
 
-function ToggleCustomTheme({ showCustomTheme, toggleCustomTheme }) {
+function ToggleCustomTheme({showCustomTheme, toggleCustomTheme}) {
 
-  return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        width: '100dvw',
-        position: 'fixed',
-        bottom: 24,
-      }}
-    >
-      <ToggleButtonGroup
-        color="primary"
-        exclusive
-        value={showCustomTheme}
-        onChange={toggleCustomTheme}
-        aria-label="Platform"
-        sx={{
-          backgroundColor: 'background.default',
-          '& .Mui-selected': {
-            pointerEvents: 'none',
-          },
-        }}
-      >
-        <ToggleButton value>
-          <AutoAwesomeRoundedIcon sx={{ fontSize: '20px', mr: 1 }} />
-          Data here
-        </ToggleButton>
-        <ToggleButton value={false}>
-          For Projects
-        </ToggleButton>
-      </ToggleButtonGroup>
-    </Box>
-  );
+    return (
+        <Box
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                width: '100dvw',
+                position: 'fixed',
+                bottom: 24,
+            }}
+        >
+            <ToggleButtonGroup
+                color="primary"
+                exclusive
+                value={showCustomTheme}
+                onChange={toggleCustomTheme}
+                aria-label="Platform"
+                sx={{
+                    backgroundColor: 'background.default',
+                    '& .Mui-selected': {
+                        pointerEvents: 'none',
+                    },
+                }}
+            >
+                <ToggleButton value>
+                    <AutoAwesomeRoundedIcon sx={{fontSize: '20px', mr: 1}}/>
+                    Data here
+                </ToggleButton>
+                <ToggleButton value={false}>
+                    For Projects
+                </ToggleButton>
+            </ToggleButtonGroup>
+        </Box>
+    );
 }
 
 ToggleCustomTheme.propTypes = {
-  showCustomTheme: PropTypes.shape({
-    valueOf: PropTypes.func.isRequired,
-  }).isRequired,
-  toggleCustomTheme: PropTypes.func.isRequired,
+    showCustomTheme: PropTypes.shape({
+        valueOf: PropTypes.func.isRequired,
+    }).isRequired,
+    toggleCustomTheme: PropTypes.func.isRequired,
 };
 
 export default function LandingPage({projects}) {
 
-    LandingPage.propTypes ={
+    LandingPage.propTypes = {
         projects: PropTypes.array
     }
-  const [mode, setMode] = React.useState('dark');
-  const [showCustomTheme, setShowCustomTheme] = React.useState(true);
-  const LPtheme = createTheme(getLPTheme(mode));
+    const [mode, setMode] = React.useState('dark');
+    const [showCustomTheme, setShowCustomTheme] = React.useState(true);
+    const LPtheme = createTheme(getLPTheme(mode));
 
     const toggleColorMode = () => {
-    setMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
-  };
+        setMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
+    };
 
-  const toggleCustomTheme = () => {
-    setShowCustomTheme((prev) => !prev);
-  };
+    const toggleCustomTheme = () => {
+        setShowCustomTheme((prev) => !prev);
+    };
 
     /* Handle window size */
     const [width, setWidth] = useState(window.innerWidth);
@@ -100,18 +101,17 @@ export default function LandingPage({projects}) {
     }, []);
 
 
-
-  return (
-    <ThemeProvider theme={showCustomTheme ? LPtheme : defaultTheme}>
-      <CssBaseline />
-      <NavBar mode={mode} toggleColorMode={toggleColorMode} />
-        <Header/>
-      <Box width={width} sx={{ bgcolor: 'background.default' }}>
-          <Container sx={{ py: 8 }} maxWidth="md">
-              {/* End hero unit */}
-              <PortfolioGrid projects={projects} />
-          </Container>
-          {/*
+    return (
+        <ThemeProvider theme={showCustomTheme ? LPtheme : defaultTheme}>
+            <CssBaseline/>
+            <NavBar mode={mode} toggleColorMode={toggleColorMode}/>
+            <MainHeader width={width}/>
+            <Box width={width} sx={{bgcolor: 'background.default'}}>
+                <Container sx={{py: 8}} maxWidth="md">
+                    {/* End hero unit */}
+                    <PortfolioGrid projects={projects}/>
+                </Container>
+                {/*
         <LogoCollection />
           <Features />
         <Divider />
@@ -124,12 +124,12 @@ export default function LandingPage({projects}) {
         <Divider />
           */}
 
-        <Footer />
-      </Box>
-      <ToggleCustomTheme
-        showCustomTheme={showCustomTheme}
-        toggleCustomTheme={toggleCustomTheme}
-      />
-    </ThemeProvider>
-  );
+                <Footer/>
+            </Box>
+            <ToggleCustomTheme
+                showCustomTheme={showCustomTheme}
+                toggleCustomTheme={toggleCustomTheme}
+            />
+        </ThemeProvider>
+    );
 }

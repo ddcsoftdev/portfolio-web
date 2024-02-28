@@ -1,0 +1,13 @@
+@keyframes rotateAnimation {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+.logo {
+    animation: rotateAnimation 5s infinite linear;
+    transform-style: preserve-3d;
+}

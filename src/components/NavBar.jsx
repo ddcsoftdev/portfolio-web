@@ -87,6 +87,14 @@ const NavBar = ({ mode, toggleColorMode }) => {
                                     sx={{ py: '6px', px: '12px' }}
                                 >
                                     <Typography variant="body2" color="text.primary">
+                                        Home
+                                    </Typography>
+                                </MenuItem>
+                                <MenuItem
+                                    onClick={() => scrollToSection('features')}
+                                    sx={{ py: '6px', px: '12px' }}
+                                >
+                                    <Typography variant="body2" color="text.primary">
                                         Projects
                                     </Typography>
                                 </MenuItem>

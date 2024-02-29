@@ -3,28 +3,18 @@ import PropTypes from 'prop-types';
 
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider';
 import {ThemeProvider, createTheme} from '@mui/material/styles';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
-import AppAppBar from './components/AppAppBar';
-import Hero from './components/Hero';
-import LogoCollection from './components/LogoCollection';
-import Highlights from './components/Highlights';
-import Pricing from './components/Pricing';
-import Features from './components/Features';
-import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import getLPTheme from './getLPTheme.jsx';
-import ProjectGrid from "../PortfolioGrid.jsx";
 import PortfolioGrid from "../PortfolioGrid.jsx";
 import {Container, setRef} from "@mui/material";
-import My3DModel from "../My3DModel.jsx";
 import NavBar from "../NavBar.jsx";
-import Header from "../shared/Header.jsx";
 import {useEffect, useRef, useState} from "react";
 import MainHeader from "../MainHeader.jsx";
+import FilterBar from "../FilterBar.jsx";
 
 const defaultTheme = createTheme({});
 
@@ -105,9 +95,14 @@ export default function LandingPage({projects}) {
         <ThemeProvider theme={showCustomTheme ? LPtheme : defaultTheme}>
             <CssBaseline/>
             <NavBar mode={mode} toggleColorMode={toggleColorMode}/>
-            <MainHeader width={width}/>
+            <div id={"home"}/>
+            <MainHeader width={width} id='home'/>
             <Box width={width} sx={{bgcolor: 'background.default'}}>
+
                 <Container sx={{py: 8}} maxWidth="md">
+                    <div id={"projects"}/>
+                    <FilterBar/>
+                    <div style={{ height: '3rem' }}></div>
                     {/* End hero unit */}
                     <PortfolioGrid projects={projects}/>
                 </Container>

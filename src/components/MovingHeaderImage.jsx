@@ -1,16 +1,25 @@
-import './MovingHeaderImage.css'; // Make sure this path is correct
+import './MovingHeaderImage.css';
+import PropTypes from "prop-types"; // Make sure this path is correct
+import "/src/index.css"
+const MovingHeaderImage = ({width, height}) => {
 
-const MovingHeaderImage = ({width, height}) => (
-    <div style={{ position: 'relative', width: 'fit-content' }}>
-    <img
-        src="src/assets/header.png"
-        alt=""
-        className="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"
-        width={width}
-        height={height}
-    />
-        <img className ="logo" src="src/assets/header_logo.png" alt="Foreground" style={{ position: 'absolute', top: '100px', left: '1000px', width: '25%' }} />
-    </div>
-);
+    MovingHeaderImage.propTypes = {
+        width: PropTypes.number,
+        height: PropTypes.number
+    }
+
+    return (
+        <div style={{position: 'relative', width: 'fit-content', height: 'fit-content'}}>
+            <img
+                src="src/assets/header.png"
+                alt=""
+                width={width}
+                height={height}
+            />
+            <img className="logo" src="src/assets/header_logo.png" alt="Foreground"
+                 style={{position: 'absolute', top: '100px', left: '1000px', width: '25%'}}/>
+        </div>
+    );
+}
 
 export default MovingHeaderImage;

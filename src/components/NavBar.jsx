@@ -83,7 +83,7 @@ const NavBar = ({ mode, toggleColorMode }) => {
                         >
                             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                                 <MenuItem
-                                    onClick={() => scrollToSection('features')}
+                                    onClick={() => scrollToSection('home')}
                                     sx={{ py: '6px', px: '12px' }}
                                 >
                                     <Typography variant="body2" color="text.primary">
@@ -91,7 +91,7 @@ const NavBar = ({ mode, toggleColorMode }) => {
                                     </Typography>
                                 </MenuItem>
                                 <MenuItem
-                                    onClick={() => scrollToSection('features')}
+                                    onClick={() => scrollToSection('projects')}
                                     sx={{ py: '6px', px: '12px' }}
                                 >
                                     <Typography variant="body2" color="text.primary">

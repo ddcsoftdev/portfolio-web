@@ -15,6 +15,7 @@ import NavBar from "../NavBar.jsx";
 import {useEffect, useRef, useState} from "react";
 import MainHeader from "../MainHeader.jsx";
 import FilterBar from "../FilterBar.jsx";
+import AboutSection from "../AboutSection.jsx";
 
 const defaultTheme = createTheme({});
 
@@ -63,7 +64,7 @@ ToggleCustomTheme.propTypes = {
     toggleCustomTheme: PropTypes.func.isRequired,
 };
 
-export default function LandingPage({projects}) {
+export default function LandingPage() {
 
     LandingPage.propTypes = {
         projects: PropTypes.array
@@ -104,8 +105,11 @@ export default function LandingPage({projects}) {
                     <FilterBar/>
                     <div style={{ height: '3rem' }}></div>
                     {/* End hero unit */}
-                    <PortfolioGrid projects={projects}/>
+                    <PortfolioGrid/>
                 </Container>
+                <div id={"about"} style={{ marginBottom: '-100px', marginTop: '200px'}}/>
+                <AboutSection width={width}/>
+
                 {/*
         <LogoCollection />
           <Features />

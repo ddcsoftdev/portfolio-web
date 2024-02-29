@@ -49,7 +49,7 @@ const FilterBar = () => {
                     onChange={(e) => setInputText(e.target.value)}
                     onKeyPress={handleKeyPress}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
-                    placeholder="Type something..."
+                    placeholder="Type Project Name"
                 />
                 <select value={language} onChange={(e) => handleSelectChange(e, 'language')} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5">
                     <option value="">Language</option>
@@ -63,14 +63,14 @@ const FilterBar = () => {
                     <option value="">Project Type</option>
                     <option value="Website">Website</option>
                     <option value="Webapp">WebApp</option>
-                    <option value="Videogame">Video game</option>
+                    <option value="Videogame">Videogame</option>
                     <option value="Software">Software</option>
                 </select>
                 <select value={technology} onChange={(e) => handleSelectChange(e, 'technology')} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5">
                     <option value="">Technology</option>
                     <option value="React">React</option>
                     <option value="Angular">Angular</option>
-                    <option value="Unreal Engine">Django</option>
+                    <option value="UnrealEngine">Unreal Engine</option>
                 </select>
                 <button onClick={handleClear} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Clear

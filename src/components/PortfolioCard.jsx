@@ -33,7 +33,7 @@ const PortfolioCard = ({project}) => {
 
 
     return (
-        <Card ref={domRef} onClick={() => { window.open(project.repository, project.title, 'noopener,noreferrer') }}>
+        <Card ref={domRef} style={{width: "84%"}} onClick={() => { window.open(project.repository, project.title, 'noopener,noreferrer') }}>
             <CardActionArea>
                 {/* Replace with Three.js 3D model */}
                 {/* {ThreeDModel} */}

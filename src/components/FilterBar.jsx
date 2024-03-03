@@ -1,4 +1,5 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
+import {useActiveTags}  from "./ProjectsWrapper.jsx";
 import "/src/index.css";
 
 const FilterBar = () => {
@@ -7,6 +8,19 @@ const FilterBar = () => {
     const [language, setLanguage] = useState('');
     const [projectType, setProjectType] = useState('');
     const [technology, setTechnology] = useState('');
+    const {activeTags, updateActiveTags} = useActiveTags();
+
+    const addActiveTags = (key, tag) => {
+        updateActiveTags(prevDict => {
+            // Check if the key already exists
+            const existingArray = prevDict[key] || [];
+
+            // Append the new string to the array (or create a new array with the string)
+            const updatedArray = [...existingArray, tag];
+            // Return a new dictionary with the updated array for the key
+            return {...prevDict, [key]: updatedArray};
+        });
+    };
 
     const handleSelectChange = (e, type) => {
         const value = e.target.value;
@@ -16,6 +30,7 @@ const FilterBar = () => {
         if (type === 'language') setLanguage(value);
         if (type === 'projectType') setProjectType(value);
         if (type === 'technology') setTechnology(value);
+        addActiveTags(type, value);
     };
 
     const handleKeyPress = (e) => {
@@ -23,6 +38,7 @@ const FilterBar = () => {
             if (!selectedTags.includes(inputText)) {
                 setSelectedTags([...selectedTags, inputText.trim()]);
                 setInputText('');
+                addActiveTags('projectName', inputText.trim());
             }
             e.preventDefault();
         }
@@ -34,10 +50,24 @@ const FilterBar = () => {
         setLanguage('');
         setProjectType('');
         setTechnology('');
+        updateActiveTags({});
     };
 
     const removeTag = (tagToRemove) => {
         setSelectedTags(selectedTags.filter(tag => tag !== tagToRemove));
+
+        // Create a new object without the removed tag
+        const updatedActiveTags = Object.keys(activeTags).reduce((acc, key) => {
+            const filteredTags = activeTags[key].filter(tag => tag !== tagToRemove);
+            if (filteredTags.length > 0) {
+                // Only add to accumulator if there are still tags left after filtering
+                acc[key] = filteredTags;
+            }
+            return acc;
+        }, {});
+
+        // Update activeTags state
+        updateActiveTags(updatedActiveTags);
     };
 
     return (
@@ -62,7 +92,7 @@ const FilterBar = () => {
                 <select value={projectType} onChange={(e) => handleSelectChange(e, 'projectType')} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2.5">
                     <option value="">Project Type</option>
                     <option value="Website">Website</option>
-                    <option value="Webapp">WebApp</option>
+                    <option value="Web Application">Web Application</option>
                     <option value="Videogame">Videogame</option>
                     <option value="Software">Software</option>
                 </select>
@@ -70,7 +100,7 @@ const FilterBar = () => {
                     <option value="">Technology</option>
                     <option value="React">React</option>
                     <option value="Angular">Angular</option>
-                    <option value="UnrealEngine">Unreal Engine</option>
+                    <option value="Unreal Engine">Unreal Engine</option>
                 </select>
                 <button onClick={handleClear} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Clear

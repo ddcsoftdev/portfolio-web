@@ -40,10 +40,10 @@ const PortfolioCard = ({project}) => {
 
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                        {project.title}
+                        {project.projectName}
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        Category: {project.category}
+                        Category: {project.projectType}
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
                         Description: {project.description.text}
@@ -52,7 +52,10 @@ const PortfolioCard = ({project}) => {
                 <My3DModel boxWidth={width}/>
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        Stack: {project.stack}
+                        Language: {project.language}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                        Technologies: {project.technology}
                     </Typography>
                     <Button target={project.title} href={project.repository}>Repository</Button>
 

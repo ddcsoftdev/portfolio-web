@@ -1,0 +1,95 @@
+.bg{
+    position: relative;
+    background-color: black;
+}
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 350px;
+    height: auto;
+}
+
+@keyframes moveFadeOutRight{
+    0% {
+        transform: translateX(0) translateY(-50%);
+        opacity: 1;
+    }
+    75% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateX(100vw) translateY(-50%);
+        opacity: 0;
+    }
+}
+
+@keyframes moveFadeOutLeft{
+    0% {
+        transform: translateX(0) translateY(-50%);
+        opacity: 1;
+    }
+    75% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateX(-100vw) translateY(-50%);
+        opacity: 0;
+    }
+}
+
+
+.move-animation-1 {
+    animation: moveFadeOutRight 2s ease-in-out forwards;
+}
+
+.move-animation-2 {
+
+    animation: moveFadeOutRight 1s ease-in-out forwards;
+    animation-delay: 200ms;
+}
+
+.move-animation-3 {
+    animation: moveFadeOutRight 1s ease-in-out forwards;
+    animation-delay: 400ms;
+}
+
+.move-animation-4 {
+    animation: moveFadeOutLeft 1s ease-in-out forwards;
+    animation-delay: 100ms;
+}
+
+.move-animation-5 {
+    animation: moveFadeOutLeft 1s ease-in-out forwards;
+    animation-delay: 300ms;
+    ;
+}
+
+.move-animation-6 {
+    animation: moveFadeOutLeft 1s ease-in-out forwards;
+    animation-delay: 500ms;
+}
+
+.one {
+    left: 12%;
+}
+
+.two{
+    left: 6%;
+}
+
+.three {
+    left: 1%;
+}
+
+.four{
+    right: 12%;
+}
+
+.five {
+    right: 6%;
+}
+
+.six{
+    right: 1%;
+}

@@ -1,6 +1,9 @@
 import './MovingHeaderImage.css';
 import PropTypes from "prop-types"; // Make sure this path is correct
 import "/src/index.css"
+import background from "../assets/header.png"
+import blub from "../assets/header_logo.png"
+
 const MovingHeaderImage = ({width, height}) => {
 
     MovingHeaderImage.propTypes = {
@@ -11,13 +14,12 @@ const MovingHeaderImage = ({width, height}) => {
     return (
         <div style={{position: 'relative', width: 'fit-content', height: 'fit-content'}}>
             <img
-                src="src/assets/header.png"
-                alt=""
+                src={background}
+                alt="background"
                 width={width}
                 height={height}
             />
-            <img className="logo" src="src/assets/header_logo.png" alt="Foreground"
-                 style={{position: 'absolute', top: '100px', left: '1000px', width: '25%'}}/>
+            <img className="logo" src={blub} alt="blub"/>
         </div>
     );
 }

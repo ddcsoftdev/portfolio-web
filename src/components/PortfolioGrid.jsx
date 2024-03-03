@@ -4,18 +4,21 @@ import PortfolioCard from "./PortfolioCard.jsx";
 import PropTypes from "prop-types";
 import "/src/index.css"
 import getProjects from "../services/client.jsx";
+import {useActiveTags} from "./ProjectsWrapper.jsx";
+
 const ProjectGrid = () => {
 
     //Declaration of States
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const {activeTags, updateActiveTags} = useActiveTags();
 
     //Fetching Data
-    const fetchProjects = () => {
+    const fetchProjects = (tags) => {
         setLoading(true);
         setError(null); // Reset error state before fetching
-        getProjects().then(projects => {
+        getProjects(tags).then(projects => {
             // Assuming the actual projects list is directly at res.data; adjust as needed
             setProjects(projects || []); // Adjust according to actual data structure
         })
@@ -25,14 +28,14 @@ const ProjectGrid = () => {
             })
             .finally(() => {
                 setLoading(false);
-                console.log("finished");
             });
     };
 
     //fetch data on loading component
     useEffect(() => {
-        fetchProjects();
-    }, [])
+        fetchProjects(activeTags);
+    }, [activeTags])
+
     return (
 
         <div className="max-w-4xl mx-auto">

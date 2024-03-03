@@ -16,6 +16,7 @@ import {useEffect, useRef, useState} from "react";
 import MainHeader from "../MainHeader.jsx";
 import FilterBar from "../FilterBar.jsx";
 import AboutSection from "../AboutSection.jsx";
+import {ProjectsWrapper} from "../ProjectsWrapper.jsx";
 
 const defaultTheme = createTheme({});
 
@@ -82,13 +83,16 @@ export default function LandingPage() {
     };
 
     /* Handle window size */
-    const [width, setWidth] = useState(window.innerWidth);
-    //get inner width on render
+    const [size, setSize] = useState({width: window.innerWidth, height: window.innerHeight});
+
     useEffect(() => {
-        window.addEventListener('resize', () => setWidth(window.innerWidth));
+        const handleResize = () => {
+            setSize({width: window.innerWidth, height: window.innerHeight});
+        };
+        window.addEventListener('resize', handleResize);
 
         // Remove event listener on cleanup
-        return () => window.removeEventListener('resize', () => setWidth(window.innerWidth));
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
 
@@ -97,18 +101,20 @@ export default function LandingPage() {
             <CssBaseline/>
             <NavBar mode={mode} toggleColorMode={toggleColorMode}/>
             <div id={"home"}/>
-            <MainHeader width={width} id='home'/>
-            <Box width={width} sx={{bgcolor: 'background.default'}}>
+            <MainHeader width={size.width} height={size.height} id='home'/>
+            <Box width={size.width} height={size.height} sx={{bgcolor: 'background.default'}}>
 
                 <Container sx={{py: 8}} maxWidth="md">
-                    <div id={"projects"}/>
-                    <FilterBar/>
-                    <div style={{ height: '3rem' }}></div>
-                    {/* End hero unit */}
-                    <PortfolioGrid/>
+                    <ProjectsWrapper>
+                        <div id={"projects"}/>
+                        <FilterBar/>
+                        <div style={{ height: '3rem' }}></div>
+                        {/* End hero unit */}
+                        <PortfolioGrid/>
+                    </ProjectsWrapper>
                 </Container>
-                <div id={"about"} style={{ marginBottom: '-100px', marginTop: '200px'}}/>
-                <AboutSection width={width}/>
+                <div id={"about"}/>
+                <AboutSection width={size.width} height={size.height} />
 
                 {/*
         <LogoCollection />

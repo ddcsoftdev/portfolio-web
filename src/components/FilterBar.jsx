@@ -27,9 +27,10 @@ const FilterBar = () => {
         if (!selectedTags.includes(value) && value !== '') {
             setSelectedTags([...selectedTags, value]);
         }
-        if (type === 'language') setLanguage(value);
-        if (type === 'projectType') setProjectType(value);
-        if (type === 'technology') setTechnology(value);
+        //Setting values to null as to aesthetic choice
+        if (type === 'language') setLanguage("");
+        if (type === 'projectType') setProjectType("");
+        if (type === 'technology') setTechnology("");
         addActiveTags(type, value);
     };
 

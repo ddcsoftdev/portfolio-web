@@ -13,11 +13,15 @@ const PortfolioCard = ({project}) => {
     // const ThreeDModel = <YourThreeJSComponent />;
     const domRef = useRef(null)
     const [width, setWidth] = useState(408);
+    const [height, setHeight] = useState(408);
+    const [isVisible, setIsVisible] = useState(false);
+
 
     useEffect(() => {
         const resizeObserver = new ResizeObserver(entries => {
             for (let entry of entries) {
-                setWidth(entry.contentRect.width);
+                setWidth(entry.contentRect.width,
+                setHeight(entry.contentRect.height));
             }
         });
 
@@ -29,8 +33,24 @@ const PortfolioCard = ({project}) => {
     }, []);
 
     useEffect(() => {
-    }, [width])
+    }, [width, height])
 
+    //rendering only when in viewport to make efficient
+    useEffect(() => {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {if (entry.isIntersecting) setIsVisible(entry.isIntersecting)});
+        });
+
+        if (domRef.current) {
+            observer.observe(domRef.current);
+        }
+
+        return () => {
+            if (domRef.current) {
+                observer.unobserve(domRef.current);
+            }
+        };
+    }, []);
 
     return (
         <Card ref={domRef} style={{width: "84%"}} onClick={() => { window.open(project.repository, project.title, 'noopener,noreferrer') }}>
@@ -49,7 +69,9 @@ const PortfolioCard = ({project}) => {
                         Description: {project.description.text}
                     </Typography>
                 </CardContent>
-                <My3DModel boxWidth={width}/>
+                {isVisible && (
+                <My3DModel width={width} height={height / 2}/>
+                    )}
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
                         Language: {project.language}

@@ -36,16 +36,45 @@
     }
 }
 
-
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
 .logo {
     position: absolute;
+    top: 0%;
+    left: 20%;
+}
+
+.smallLogo {
+    position: absolute;
     top: 18%;
-    left: 65%;
-    transform: translate(-50%, 0);
-    width: 15%;
-    height: 50%;
-    perspective: 1000px;
-    animation: realistic3dSpin 7s infinite linear;
-    transform-style: preserve-3d;
+    left: 4%;
+    animation: fadeIn 3s ease-out;
+}
+
+.smallLogoText{
+    position: absolute;
+    top: 21%;
+    left: 9%;
+    animation: fadeIn 2s ease-out;
+}
+
+.title {
+    position: absolute;
+    bottom: 44%;
+    left: 9%;
+    animation: fadeIn 2s ease-out;
+}
+
+.title2 {
+    position: absolute;
+    bottom: 38%;
+    left: 9%;
+    animation: fadeIn 4s ease-out;
 }

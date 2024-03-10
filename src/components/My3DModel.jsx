@@ -1,54 +1,47 @@
-import React, { useRef, useEffect } from 'react';
-import * as THREE from 'three';
-// Import OrbitControls using ES6 modules
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import {sizeWidth} from "@mui/system";
+import React, {useRef, useEffect, useState} from 'react';
+import videoSrc from "../assets/videos/card-animation.mp4"
 import PropTypes from "prop-types";
+import {Application} from "@splinetool/runtime";
 
-const My3DModel = ({boxWidth}) => {
-    const mountRef = useRef()
+
+const My3DModel = ({width, height}) => {
+
+    My3DModel.propTypes = {
+        width: PropTypes.oneOfType([
+            PropTypes.number,
+        ]),
+        height: PropTypes.oneOfType([
+            PropTypes.number,
+        ])};
+
+    const [isLoading, setIsLoading] = useState(true); // Assume video is loading initially
+
+    // Adjusted to control video loading
     useEffect(() => {
-        const currentMountRef = mountRef.current;
-        // Scene setup
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.z = 5;
+        const handleVideoLoad = () => setIsLoading(false);
 
-        const renderer = new THREE.WebGLRenderer();
-        let sizeWidth = boxWidth;
-        let sizeHeight = 200;
-        renderer.setSize(sizeWidth, sizeHeight);
-        mountRef.current.appendChild(renderer.domElement); // Attach renderer to the div
-
-        // Create a cube
-        const geometry = new THREE.BoxGeometry(1, 1, 1);
-        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-        const cube = new THREE.Mesh(geometry, material);
-        scene.add(cube);
-
-        // Animation function
-        const animate = () => {
-            requestAnimationFrame(animate);
-
-            // Rotation
-            cube.rotation.x += 0.01;
-            cube.rotation.y += 0.01;
-
-            renderer.render(scene, camera);
-        };
-
-        animate();
-
-        // Cleanup
         return () => {
-            currentMountRef.removeChild(renderer.domElement);
+            // Cleanup if necessary
         };
-    }, []);
+    }, [videoSrc]); // Re-run effect if videoSrc changes
 
-    return <div ref={mountRef} />;
-};
-
-My3DModel.propTypes = {
-    boxWidth: PropTypes.number.isRequired,
+    return (
+        <div>
+            {isLoading && <div>Loading...</div>}
+            <video
+                width={width}
+                height={height}
+                autoPlay // Start playing automatically
+                muted // Mute the video to ensure autoplay on most browsers
+                loop // Loop the video infinitely
+                playsInline // Helps with autoplay on iOS devices
+                onCanPlayThrough={() => setIsLoading(false)} // Hide loading once video can play through
+                style={{ display: isLoading ? 'none' : 'block' }}
+            >
+                <source src={videoSrc} type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    );
 };
 export default My3DModel;

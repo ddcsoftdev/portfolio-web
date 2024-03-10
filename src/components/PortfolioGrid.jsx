@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Grid from '@mui/material/Grid';
 import PortfolioCard from "./PortfolioCard.jsx";
 import PropTypes from "prop-types";
@@ -37,7 +37,6 @@ const ProjectGrid = () => {
     }, [activeTags])
 
     return (
-
         <div className="max-w-4xl mx-auto">
             <div className="grid overflow-x-auto snap-x snap-mandatory" style={{height: "640px", width: "1000px" , scrollPaddingLeft: "1rem"}}>
             <Grid container spacing={4}>

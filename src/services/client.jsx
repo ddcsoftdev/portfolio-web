@@ -9,12 +9,30 @@ const getProjects = async (tags) =>{
     };
 
 // Dynamically create the OR array structure from the tags dictionary
-    const orConditions = Object.entries(tags).flatMap(([key, values]) =>
-        values.map(value => `{${key}_contains: "${value}"}`)
-    ).join(', ');
+    const createQuery = (field) => {
+        if (tags[field]) {
+            return tags[field].map(value => `{${field}_contains: "${value}"}`).join(', ');
+        } else {
+            return '';
+        }
+    };
+
+
+    const projectNameQuery = createQuery("projectName");
+    const projectTypeQuery = createQuery("projectType");
+    const languageQuery = createQuery("language");
+    const technologyQuery = createQuery("technology");
+
 
 // Construct the where filter as a string
-    const filters = `where: { OR: [ ${orConditions} ] }`;
+    //const filters = `where: { OR: [ ${orConditions} ] }`;
+//QUERY MAY BE WRONG
+    const filters = `where: { AND: [
+                              {OR: [${projectNameQuery}]},
+                              {OR: [${projectTypeQuery}]},
+                              {OR: [${languageQuery}]},
+                             {OR: [${technologyQuery}]}
+                              ]}`;
 
     /* These are examples to filter with axios and Graphql
     Reference 1:
@@ -38,6 +56,7 @@ const getProjects = async (tags) =>{
                                                 technology}}`,
         "variables": {}
     };
+
     try {
         const response = await axios({
             url: endpoint,

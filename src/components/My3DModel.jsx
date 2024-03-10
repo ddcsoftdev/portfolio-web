@@ -1,5 +1,5 @@
 import React, {useRef, useEffect, useState} from 'react';
-import videoSrc from "../assets/videos/card-animation.mp4"
+import videoSrc from "../assets/videos/temo-vid.mp4"
 import PropTypes from "prop-types";
 import {Application} from "@splinetool/runtime";
 

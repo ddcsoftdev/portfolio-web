@@ -49,32 +49,33 @@
     position: absolute;
     top: 0%;
     left: 20%;
+    animation: fadeIn 4s ease-in;
 }
 
 .smallLogo {
     position: absolute;
     top: 18%;
     left: 4%;
-    animation: fadeIn 3s ease-out;
+    animation: fadeIn 1s ease-in;
 }
 
 .smallLogoText{
     position: absolute;
     top: 21%;
     left: 9%;
-    animation: fadeIn 2s ease-out;
+    animation: fadeIn 4s ease-in;
 }
 
 .title {
     position: absolute;
     bottom: 44%;
     left: 9%;
-    animation: fadeIn 2s ease-out;
+    animation: fadeIn 1s ease-in;
 }
 
 .title2 {
     position: absolute;
     bottom: 38%;
     left: 9%;
-    animation: fadeIn 4s ease-out;
+    animation: fadeIn 4s ease-in;
 }

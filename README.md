@@ -38,10 +38,9 @@
 
 1. Clone the repository:
 
-   \`\`\`
-   sh
+   ```sh
    git clone https://github.com/ddcsoftdev/portfolio-web.git
-   \`\`\`
+   ```
 
 3. Navigate to the project directory:
 

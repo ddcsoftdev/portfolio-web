@@ -38,21 +38,24 @@
 
 1. Clone the repository:
 
-   ```sh
+   sh
+   ```
    git clone https://github.com/ddcsoftdev/portfolio-web.git
    ```
 
 3. Navigate to the project directory:
 
-   \`\`\`sh
+   sh
+   ```
    cd portfolio-web
-   \`\`\`
+   ```
 
-4. Install the dependencies:
+5. Install the dependencies:
 
-   \`\`\`sh
+   sh
+   ```
    npm install
-   \`\`\`
+   ```
 
 ## Usage
 
@@ -61,20 +64,22 @@
 1. Create a \`.env\` file in the root directory.
 2. Add your GraphQL endpoint URL and API key to the \`.env\` file:
 
-   \`\`\`env
+   env
+   ```
    VITE_GRAPHQL_ENDPOINT=https://your-graphql-endpoint.com/graphql
    VITE_API_KEY=your_api_key
-   \`\`\`
+   ```
 
 ### Running the Project
 
 1. Start the development server:
 
-   \`\`\`sh
+   sh
+   ```
    npm run dev
    \`\`\`
 
-2. Open your browser and navigate to \`http://localhost:3000\` to see the website in action.
+3. Open your browser and navigate to \`http://localhost:3000\` to see the website in action.
 
 ![Running the Project Illustration](https://via.placeholder.com/800x300)
 

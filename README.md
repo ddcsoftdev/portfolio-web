@@ -38,17 +38,18 @@
 
 1. Clone the repository:
 
-   \`\`\`sh
+   \`\`\`
+   sh
    git clone https://github.com/ddcsoftdev/portfolio-web.git
    \`\`\`
 
-2. Navigate to the project directory:
+3. Navigate to the project directory:
 
    \`\`\`sh
    cd portfolio-web
    \`\`\`
 
-3. Install the dependencies:
+4. Install the dependencies:
 
    \`\`\`sh
    npm install

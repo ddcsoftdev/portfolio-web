@@ -1,7 +1,6 @@
 
 # Portfolio Web
 
-![Portfolio Web](https://via.placeholder.com/150)
 
 ## Table of Contents
 
@@ -19,7 +18,6 @@
 
 **Portfolio Web** is a website that connects to a headless CMS using GraphQL to store and display projects. Users can view and filter projects easily. This project is built with React and Vite for a fast and efficient development experience.
 
-![Portfolio Web Illustration](https://via.placeholder.com/800x300)
 
 ## Features
 

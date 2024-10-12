@@ -1,5 +1,15 @@
 {
-  "/page": "app/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/projects/page": "app/projects/page.js"
+  "/projects/page": "app/projects/page.js",
+  "/feed.xml/route": "app/feed.xml/route.js",
+  "/page": "app/page.js",
+  "/articles/introducing-animaginary/page": "app/articles/introducing-animaginary/page.js",
+  "/articles/crafting-a-design-system-for-a-multiplanetary-future/page": "app/articles/crafting-a-design-system-for-a-multiplanetary-future/page.js",
+  "/articles/rewriting-the-cosmos-kernel-in-rust/page": "app/articles/rewriting-the-cosmos-kernel-in-rust/page.js",
+  "/articles/page": "app/articles/page.js",
+  "/about/page": "app/about/page.js",
+  "/thank-you/page": "app/thank-you/page.js",
+  "/speaking/page": "app/speaking/page.js",
+  "/uses/page": "app/uses/page.js"
 }

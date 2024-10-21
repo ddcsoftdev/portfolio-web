@@ -183,7 +183,7 @@ function Role({ role }: { role: Role }) {
     </li>
   )
 }
-
+/*
 function Resume() {
   let resume: Array<Role> = [
     {
@@ -236,7 +236,7 @@ function Resume() {
       </Button>
     </div>
   )
-}
+}*/
 
 function Photos() {
   let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
@@ -285,19 +285,13 @@ export default async function Home() {
             make a real impact.
           </p>
           <div className="mt-6 flex gap-6">
-            <SocialLink href="#" aria-label="Follow on X" icon={XIcon} />
             <SocialLink
-              href="#"
-              aria-label="Follow on Instagram"
-              icon={InstagramIcon}
-            />
-            <SocialLink
-              href="#"
+              href="https://github.com/ddcsoftdev"
               aria-label="Follow on GitHub"
               icon={GitHubIcon}
             />
             <SocialLink
-              href="#"
+              href="https://www.linkedin.com/in/diegoddemarco/"
               aria-label="Follow on LinkedIn"
               icon={LinkedInIcon}
             />
@@ -307,10 +301,11 @@ export default async function Home() {
       <Photos />
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
+        {/*  
           <div className="space-y-10 lg:pl-16 xl:pl-24">
             <Newsletter />
             <Resume />
-          </div>
+          </div>*/}
         </div>
       </Container>
     </>

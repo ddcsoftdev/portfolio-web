@@ -1,1 +1,0 @@
-"use strict";exports.id=844,exports.ids=[844,914],exports.modules={7932:(e,t,r)=>{r.d(t,{a:()=>a});var o=r(2051),s=r(9624);function a(e){return{...e,Image:e=>o.jsx(s.default,{...e})}}},534:(e,t,r)=>{r.d(t,{B:()=>o});let o=(0,r(5347).createProxy)(String.raw`/Users/diegodemarco/Documents/Portfolio/softwaredev-website/src/components/ArticleLayout.tsx#ArticleLayout`)}};
